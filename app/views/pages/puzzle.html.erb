@@ -1,25 +1,27 @@
-<%= render ({ :partial => "pager/intro.html.erb"})%>
+<%= render({ :partial => "pages/intro.html.erb"})%>
 
 <!-- STATIC INTRO CONTENT ABOVE -->
 
 <p class="lead">
   Your guesses:
-</p>
+</p> 
 
 <!-- LOOP OVER ALL OF THE USER'S GUESSES HERE -->
   <!-- Here's the first guess -->
+  <% @old_guesses.each do |guess| %>
   <p class="lead">
     <span class="badge badge-success">
-      3
+      <%= guess.fetch("first_num")%>
     </span>
 
     <span class="badge badge-success">
-      6
+      <%= guess.fetch("second_num")%>
     </span>
 
     <span class="badge badge-success">
-      12
+      <%= guess.fetch("third_num")%>
     </span>
+    <% end %>
 
     <span class="text-success">
         Yes!
@@ -96,4 +98,4 @@ chance.</strong></p>
 
 <!-- Static conclusion content below -->
 
-<%= render ({ :partial => "pager/outro.html.erb"})%>
+<%= render({ :partial => "pages/outro.html.erb"})%>
